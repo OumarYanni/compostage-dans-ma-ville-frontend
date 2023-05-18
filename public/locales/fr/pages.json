@@ -1,6 +1,7 @@
 {
   "home": {
-    "refer_site": "Référencer un site de compostage"
+    "refer_site": "Référencer un site de compostage",
+    "compost_near_position": "Où composter prêt de ma position ?"
   },
   "register": {
     "title": "Inscription"
@@ -13,7 +14,6 @@
     "description": "Veuillez entrer votre addresse email. Vous recevrez un lien vous permettant de modifier votre mot de passe."
   },
   "404": {
-    "back_home": "Aller à la page d'accueil",
     "not_found": "Oups! Cette page n'a pas pu être trouvée."
   },
   "user": {
@@ -29,13 +29,26 @@
     "opening_of": "Horaires du",
     "add_opening": "Ajouter une horaire",
     "access": "Accès",
-    "specify_site_visibility": "Ce site est il publique?",
-    "public_description": "Ce site est publique",
-    "private_description": "Ce site est privé et accessible qu'à partir de certaines conditions",
+    "specify_site_visibility": "Ce site est il public?",
     "access_description": "Merci de préciser quelles sont les conditions pour pouvoir accéder à ce site de compostage.",
     "update_location_on_map": "Vous pouvez ajuster l'emplacement du site sur la carte interactive!",
     "reset_map": "Réinitialiser l'emplacement",
     "position_is_distant": "L'emplacement indiquée est éloignée de l'adresse saisie",
-    "update_localisation": "Modifier l'adresse"
+    "update_localisation": "Modifier l'adresse",
+    "has_schedules": "Ce site possède des heures d'ouverture définies.",
+    "lauch_date": "Date de mise en service",
+    "link_organization_to_site": "Lier une organisation à ce site de compostage",
+    "link_organization_benefits": "Il est possible de lier une organisation dont vous êtes membre à un site de compostage. Les membres de l'organisation peuvent alors éditer les informations du site.",
+    "select_my_organizations": "Sélectionner parmis mes organisations",
+    "disassociate_organizations": "Dissocier cette organisation du site",
+    "site_handled_by": "Ce site est géré par l'organisation"
+  },
+  "ouComposter": {
+    "title": "Où composter",
+    "where": "Où composter à"
+  },
+  "organization": {
+    "add_sites": "Associer des sites de compostage à cette organisation",
+    "add_member": "Ajouter un membre"
   }
 }

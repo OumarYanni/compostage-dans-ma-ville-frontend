@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "Rue des Vinaigriers",
+    "isPublic": true,
+    "address": {
+      "houseNumber": "3",
+      "streetName": "[#faker:address:streetName]",
+      "zipCode": 57000,
+      "city": "Metz",
+      "latitude": 48.872970,
+      "longitude": 2.359282
+    }
+  },
+  {
+    "id": 2,
+    "name": "Rue du Château d'Eau",
+    "isPublic": true,
+    "address": {
+      "houseNumber": "3",
+      "streetName": "[#faker:address:streetName]",
+      "zipCode": 57000,
+      "city": "Metz",
+      "latitude": 48.869770,
+      "longitude": 2.356950
+    }
+  },
+  {
+    "id": 3,
+    "name": "Rue de Paradis",
+    "isPublic": false,
+    "address": {
+      "houseNumber": "3",
+      "streetName": "[#faker:address:streetName]",
+      "zipCode": 57000,
+      "city": "Metz",
+      "latitude": 48.875090,
+      "longitude": 2.352510
+    }
+  },
+  {
+    "id": 4,
+    "name": "Boulevard de la Chapelle",
+    "isPublic": false,
+    "address": {
+      "houseNumber": "3",
+      "streetName": "[#faker:address:streetName]",
+      "zipCode": 57000,
+      "city": "Metz",
+      "latitude": 48.883970,
+      "longitude": 2.357870
+    }
+  }
+]

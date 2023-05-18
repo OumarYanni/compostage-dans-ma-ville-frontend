@@ -1,8 +1,8 @@
+import { RemoveIndex } from '@/helpers/typing'
 import yup from '@/helpers/yup-extended'
 
-import { RemoveIndex } from '@/helpers/typing'
-
 import { descriptionSchema } from './common'
+import { OrganizationRole } from './organization'
 
 export const passwordSchema = {
   password: yup
@@ -59,7 +59,18 @@ export type UserCreation = RemoveIndex<yup.InferType<typeof userCreationSchema>>
 export type EditUser = RemoveIndex<yup.InferType<typeof editUserSchema>>
 export type User = Omit<UserCreation, 'password' | 'confirmPassword' | 'email' > & {
   id: number
-  avatar?: string,
+  avatar?: string
   description?: string
+  organizations: {role: OrganizationRole, organizationId: number}[]
 }
-export type AuthenticatedUser = User & { email: string }
+export type AuthenticatedUser = User & {
+  email: string
+  role: UserRole
+  isEmailConfirmed: boolean
+ }
+
+// eslint-disable-next-line no-shadow
+export enum UserRole {
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+}

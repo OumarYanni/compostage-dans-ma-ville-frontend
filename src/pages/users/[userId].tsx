@@ -15,11 +15,12 @@ import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import Can, { an } from '@/components/Can'
 import MainLayout from '@/components/layouts/MainLayout'
 import PageTitle from '@/components/PageTitle'
-import { useMe } from '@/contexts'
+import UserTabs from '@/components/user/UserTabs'
 import { getUser } from '@/domains/api'
-import { User } from '@/domains/schemas'
+import { AuthenticatedUser } from '@/domains/schemas'
 
 const EditUserForm = dynamic(() => import('@/components/user/EditUserForm'))
 
@@ -46,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 }
 
 interface UserProfileProps {
-  user: User
+  user: AuthenticatedUser
 }
 
 const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
@@ -54,10 +55,6 @@ const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
     'common'
   ])
   const [editionMode, setEditionMode] = React.useState(false)
-
-  const { me } = useMe()
-
-  const canEdit = (user?.id === me?.id)
 
   return (
     <MainLayout>
@@ -73,11 +70,11 @@ const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
             )
             : (
               <Card>
-                {canEdit && (
+                <Can do="update" on={an('user', user)}>
                   <ButtonGroup variant="outlined" sx={{ m: 2, display: 'flex', justifyContent: 'flex-end' }}>
                     <Button onClick={(): void => setEditionMode(true)} startIcon={<EditIcon />}>{t('common:edit')}</Button>
                   </ButtonGroup>
-                )}
+                </Can>
 
                 <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <Avatar src={user.avatar} sx={{
@@ -98,6 +95,12 @@ const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
                       </Grid>
                     </Grid>
                   )}
+
+                  <Grid container mt={2} justifyContent="center">
+                    <Grid item xs={12} md={8}>
+                      <UserTabs user={user} />
+                    </Grid>
+                  </Grid>
                 </CardContent>
               </Card>
             )

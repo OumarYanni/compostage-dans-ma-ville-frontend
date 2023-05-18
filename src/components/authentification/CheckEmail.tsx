@@ -16,7 +16,7 @@ export const CheckEmail: React.FC = () => {
 
   return (
     <>
-      <Avatar sx={{ m: 1, bgcolor: 'secondary.main'}}>
+      <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
         <MailOutlineIcon />
       </Avatar>
       <Typography component="h1" variant="h5">

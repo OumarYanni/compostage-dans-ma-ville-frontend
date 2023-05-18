@@ -3,5 +3,16 @@
   "firstName": "Johann",
   "lastName": "Chopin",
   "email": "johannchopin@gmail.com",
-  "avatar": "https://avatars.githubusercontent.com/u/31794680?v=4"
+  "avatar": "https://avatars.githubusercontent.com/u/31794680?v=4",
+  "isEmailConfirmed": true,
+  "organizations": [
+    {
+      "role": "ADMIN",
+      "organizationId": 42
+    },
+    {
+      "role": "MEMBER",
+      "organizationId": 43
+    }
+  ]
 }

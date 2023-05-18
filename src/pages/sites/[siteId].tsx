@@ -1,14 +1,8 @@
 import * as React from 'react'
 
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Container from '@mui/material/Container'
-import Divider from '@mui/material/Divider'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemAvatar from '@mui/material/ListItemAvatar'
-import Typography from '@mui/material/Typography'
 
 import { GetServerSideProps, NextPage } from 'next'
 import { useTranslation } from 'next-i18next'
@@ -16,8 +10,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import MainLayout from '@/components/layouts/MainLayout'
 import PageTitle from '@/components/PageTitle'
-import ScheduleList from '@/components/site/ScheduleList'
 import SiteCarousel from '@/components/site/SiteCarousel'
+import SiteInfo from '@/components/site/SiteInfo'
 import { getSite } from '@/domains/api'
 import { Site } from '@/domains/schemas'
 
@@ -62,33 +56,7 @@ const SitePage: NextPage<SiteProps> = ({ site }) => {
           <SiteCarousel images={site.images}/>
 
           <CardContent>
-            <Typography variant="h4" component="h1" >
-              {site.name}
-            </Typography>
-
-            {site.description && (
-              <Typography variant="body1" color="text.secondary" marginLeft={2} marginTop={2}>
-                {site.description}
-              </Typography>
-            )}
-
-            <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-              <ListItem alignItems="center">
-                <ListItemAvatar>
-                  <LocationOnRoundedIcon fontSize="large" color="primary" />
-                </ListItemAvatar>
-
-                <Typography fontWeight="bold">
-                  {site.address.houseNumber}&nbsp;
-                  {site.address.streetName},&nbsp;
-                  {site.address.zipCode}&nbsp;
-                  {site.address.city}
-                </Typography>
-
-              </ListItem>
-              <Divider variant="inset" component="li" />
-              <ScheduleList schedules={site.schedules}/>
-            </List>
+            <SiteInfo site={site}/>
           </CardContent>
         </Card>
       </Container>
