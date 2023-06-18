@@ -2,6 +2,7 @@ import React from 'react'
 
 import Diversity2RoundedIcon from '@mui/icons-material/Diversity2Rounded'
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded'
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Grid'
@@ -16,6 +17,7 @@ import { Site } from '@/domains/schemas'
 
 import IsPublicChip from './IsPublicChip'
 import ScheduleList from './ScheduleList'
+import TeamList from './TeamList'
 import OrganizationListItemContent from '../organization/OrganizationListItemContent'
 
 export interface SiteInfoProps {
@@ -30,7 +32,7 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ site }) => {
 
   return (
     <>
-      <Typography variant="h4" component="h1" >
+      <Typography variant="h4" component="h1">
         {site.name}
       </Typography>
 
@@ -56,12 +58,30 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ site }) => {
             {site.address.zipCode}&nbsp;
             {site.address.city}
           </Typography>
-
         </ListItem>
+
         {site.schedules && (
           <>
             <Divider variant="inset" component="li" />
             <ScheduleList schedules={site.schedules}/>
+          </>
+        )}
+
+        {site.accessConditions && (
+          <>
+            <Divider variant="inset" component="li" />
+            <ListItem alignItems="center">
+              <ListItemAvatar>
+                <LockOutlinedIcon fontSize="large" color="primary" />
+              </ListItemAvatar>
+
+              <Box>
+                <Typography variant='body1' component="p" fontWeight="bold">{t('common:access_condition')}</Typography>
+                <Typography variant='body2' component="p" sx={{ whiteSpace: 'pre-wrap' }}>
+                  {site.accessConditions}
+                </Typography>
+              </Box>
+            </ListItem>
           </>
         )}
 
@@ -88,6 +108,8 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ site }) => {
           </>
         )}
 
+        <Divider variant="inset" component="li" />
+        <TeamList site={site} />
       </List>
     </>
   )

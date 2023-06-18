@@ -10,10 +10,14 @@ import { Address } from '@/domains/schemas'
 import { formatAddress } from '@/domains/utils'
 
 import InputButton from '../form/InputButton'
+import LazyLoadingLoader from '../LazyLoadingLoader'
 
 const EditAddresseDialog = dynamic(
   () => import('./EditAddressDialog'),
-  { ssr: false }
+  {
+    loading: LazyLoadingLoader,
+    ssr: false
+  }
 )
 
 export interface AddressInputProps extends Omit<ButtonProps, 'onChange'> {
@@ -44,7 +48,7 @@ const AddressInput: React.FC<AddressInputProps> = ({ address, onChange, ...restP
           ...restProps.sx
         }}
       >
-        <Typography variant='body1' component='span'>
+        <Typography>
           {address ? formatAddress(address) : t('common:add_address') + ' *'}
         </Typography>
       </InputButton>
